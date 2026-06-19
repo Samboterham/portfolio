@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<meta name="description" content="Sam — Front-End Developer based in Utrecht. Building fast, accessible, delightful interfaces."/>
+<meta property="og:title" content="Sam | Front-End Developer"/>
+<meta property="og:description" content="Front-end developer based in Utrecht. React, Vue, design systems, performance."/>
+<meta property="og:type" content="website"/>
+<meta name="theme-color" content="#5b4cff"/>
+<title>Sam | Front-End Developer — Utrecht</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-name">sam<span>.</span>dev</div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+  <div class="loader-pct" id="loaderPct">0%</div>
+</div>
+
+<div class="scroll-bar" id="scrollBar"></div>
+<div class="nav-overlay" id="navOverlay"></div>
+<div id="cur-dot"></div><div id="cur-ring"></div>
+<div id="spotlight"></div>
+<div class="toast-wrap" id="toastWrap"></div>
+<a href="#home" class="skip">Skip to content</a>
+
+<nav class="side-dots" aria-label="Sections">
+  <a href="#home"         class="sd" data-label="Home"></a>
+  <a href="#about"        class="sd" data-label="About"></a>
+  <a href="#skills"       class="sd" data-label="Skills"></a>
+  <a href="#services"     class="sd" data-label="Services"></a>
+  <a href="#now"          class="sd" data-label="Now"></a>
+  <a href="#projects"     class="sd" data-label="Projects"></a>
+  <a href="#experience"   class="sd" data-label="Experience"></a>
+  <a href="#testimonials" class="sd" data-label="Testimonials"></a>
+  <a href="#contact"      class="sd" data-label="Contact"></a>
+</nav>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo-text">sam<span class="logo-dot">.</span>dev<span class="logo-version">v2025</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#now">Now</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon" id="themeIcon"></i></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section id="home">
+  <canvas id="meshCanvas" class="hero-mesh"></canvas>
+  <div class="aurora"></div>
+  <div class="container hero-layout">
+    <div class="hero">
+      <div class="hero-badge"><span class="status-dot"></span>Available for projects&nbsp;·&nbsp;Utrecht</div>
+      <h1>
+        <div class="hero-word"><span style="animation-delay:.05s">Front-end</span></div>
+        <div class="hero-word"><span style="animation-delay:.15s">&nbsp;dev</span></div>
+        <div class="hero-word"><span style="animation-delay:.12s">&nbsp;who</span></div>
+        <br/>
+        <div class="hero-word"><span style="animation-delay:.25s"><em>crafts</em></span></div>
+        <div class="hero-word"><span style="animation-delay:.32s">&nbsp;the</span></div>
+        <br/>
+        <div class="hero-word"><span style="animation-delay:.4s">details.</span></div>
+      </h1>
+      <div class="tw-wrap"><span id="tw"></span><span class="tw-cursor"></span></div>
+      <p class="hero-desc">I'm Sam, based in Utrecht. I turn complex ideas into fast, accessible, and delightful interfaces — and I care about every pixel in between.</p>
+      <div class="hero-actions">
+        <span class="mag-wrap"><a href="#projects" class="btn btn-primary">See my work <i class="fas fa-arrow-right"></i></a></span>
+        <span class="mag-wrap"><a href="#contact" class="btn btn-outline">Get in touch</a></span>
+      </div>
+      <div class="hero-scroll"><div class="hero-scroll-line"></div>scroll to explore</div>
+    </div>
+    <div class="globe-card reveal" style="transition-delay:.15s">
+      <div class="globe-bar"><div class="wd r"></div><div class="wd y"></div><div class="wd g"></div><span style="font-size:.68rem;color:var(--muted);margin-left:6px;font-family:'JetBrains Mono',monospace">skills-3d.glb</span></div>
+      <div id="globeMount"></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="eyebrow">About</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="section-title flip-wrap"><div class="flip-inner">Building with empathy,<br/>shipping with precision.</div></div>
+        <div class="about-body">
+          <p>I'm a front-end developer with <strong>4+ years</strong> of experience crafting production-grade interfaces. I specialize in React and Vue ecosystems, with a genuine focus on <strong>accessibility, performance, and design systems</strong>.</p>
+          <p>Before going independent I worked agency-side in Utrecht, shipping products for fintech, health, and e-commerce clients. I'm a regular open-source contributor and occasionally mentor junior developers.</p>
+          <p>Outside of code: long rides along the Kromme Rijn, ceramic workshops, and too many Figma frames open at once.</p>
+        </div>
+        <div style="margin-top:1.75rem"><span class="mag-wrap"><a href="#" id="cvBtn" class="btn btn-outline" style="font-size:.8rem">Download CV <i class="fas fa-download"></i></a></span></div>
+      </div>
+      <div class="reveal" style="transition-delay:.12s">
+        <div class="kpi-grid">
+          <div class="kpi"><div class="kpi-num" data-count="4" data-suffix="+">0</div><div class="kpi-lbl">Years exp.</div></div>
+          <div class="kpi"><div class="kpi-num" data-count="30" data-suffix="+">0</div><div class="kpi-lbl">Projects</div></div>
+          <div class="kpi"><div class="kpi-num" data-count="12" data-suffix="">0</div><div class="kpi-lbl">OSS contribs</div></div>
+          <div class="kpi"><div class="kpi-num" data-count="100" data-suffix="%">0</div><div class="kpi-lbl">A11y focus</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow">Skills</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">The tech toolkit.</div></div>
+    <div class="skills-grid reveal">
+      <div>
+        <div class="skill-group-label">Core</div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>HTML5 / Semantics</span><span class="skill-pct">98%</span></div><div class="skill-track"><div class="skill-fill" data-w="98"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>CSS3 / Tailwind</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-w="95"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>JavaScript ES2022+</span><span class="skill-pct">92%</span></div><div class="skill-track"><div class="skill-fill" data-w="92"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Accessibility (WCAG)</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-w="90"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-group-label">Frameworks</div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>React / Next.js</span><span class="skill-pct">93%</span></div><div class="skill-track"><div class="skill-fill" data-w="93"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Vue 3 / Nuxt</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Vite / Vitest</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Storybook / DS</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-w="80"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-group-label">Back-end & Data</div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Node.js / Express</span><span class="skill-pct">82%</span></div><div class="skill-track"><div class="skill-fill" data-w="82"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Firebase / Firestore</span><span class="skill-pct">86%</span></div><div class="skill-track"><div class="skill-fill" data-w="86"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>REST & GraphQL</span><span class="skill-pct">84%</span></div><div class="skill-track"><div class="skill-fill" data-w="84"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Git / CI·CD</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-w="90"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-group-label">Design & Process</div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Figma / Framer</span><span class="skill-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-w="88"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Core Web Vitals</span><span class="skill-pct">91%</span></div><div class="skill-track"><div class="skill-fill" data-w="91"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Responsive Design</span><span class="skill-pct">96%</span></div><div class="skill-track"><div class="skill-fill" data-w="96"></div></div></div>
+        <div class="skill-bar-item"><div class="skill-bar-label"><span>Agile / Scrum</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-w="85"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="eyebrow">Services</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">What I build for you.</div></div>
+    <div class="services-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon"><i class="fas fa-layer-group"></i></div>
+        <h3 class="srv-title">Design Systems</h3>
+        <p class="srv-desc">Scalable component libraries in Storybook with design tokens, documentation, and accessibility baked in from day one.</p>
+        <div class="srv-price">From €2,500</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.08s">
+        <div class="srv-icon"><i class="fas fa-gauge-high"></i></div>
+        <h3 class="srv-title">Performance Audits</h3>
+        <p class="srv-desc">Deep-dive Core Web Vitals analysis with a prioritised fix list and implementation. Most sites see 40%+ improvement.</p>
+        <div class="srv-price">From €800</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.16s">
+        <div class="srv-icon"><i class="fas fa-code"></i></div>
+        <h3 class="srv-title">Full Product Build</h3>
+        <p class="srv-desc">End-to-end front-end development for your product — from architecture to deployment, React or Vue, accessible and fast.</p>
+        <div class="srv-price">From €5,000</div>
+      </div>
+      <div class="srv-card reveal" style="transition-delay:.24s">
+        <div class="srv-icon"><i class="fas fa-universal-access"></i></div>
+        <h3 class="srv-title">Accessibility Reviews</h3>
+        <p class="srv-desc">WCAG 2.2 compliance audit with screen-reader testing, keyboard nav verification, and a clear remediation roadmap.</p>
+        <div class="srv-price">From €600</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="container">
+    <div class="eyebrow">Now</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">What I'm working on.</div></div>
+    <div class="now-grid reveal">
+      <div class="now-card">
+        <div class="now-icon"><i class="fas fa-rocket"></i></div>
+        <div class="now-title">Building a SaaS Product</div>
+        <p class="now-desc">A design system management tool for remote teams. Currently in beta with early adopters.</p>
+        <div class="live-badge">In development</div>
+      </div>
+      <div class="now-card">
+        <div class="now-icon"><i class="fas fa-pen-nib"></i></div>
+        <div class="now-title">Writing Technical Articles</div>
+        <p class="now-desc">Weekly posts on React performance, animation patterns, and accessible component design on dev.to.</p>
+        <div class="live-badge">Active · 2k readers</div>
+      </div>
+      <div class="now-card">
+        <div class="now-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="now-title">Learning Rust & WebAssembly</div>
+        <p class="now-desc">Exploring WASM for front-end performance use cases and building small browser tools.</p>
+        <div class="live-badge">Ongoing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow">Projects</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">Selected work.</div></div>
+    <div class="proj-filter reveal">
+      <button class="pf-btn active" data-filter="all">All</button>
+      <button class="pf-btn" data-filter="React">React</button>
+      <button class="pf-btn" data-filter="Vue 3">Vue</button>
+      <button class="pf-btn" data-filter="Next.js">Next.js</button>
+      <button class="pf-btn" data-filter="JavaScript">JavaScript</button>
+    </div>
+    <div class="proj-grid">
+      <div class="tilt-wrap reveal" data-tags="React,Tailwind,OpenAI,TypeScript">
+        <div class="proj-card">
+          <div class="proj-thumb thumb-purple"><i class="fas fa-brain"></i></div>
+          <div class="proj-overlay">
+            <div class="proj-overlay-title">Nexus AI Studio</div>
+            <div class="proj-overlay-desc">AI image generation dashboard with real-time prompt engineering, history management, and style presets.</div>
+            <div class="proj-overlay-links"><a href="#">Code <i class="fab fa-github"></i></a><a href="#">Demo <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nexus AI Studio</div>
+            <div class="proj-sub">AI dashboard · React · OpenAI API</div>
+            <div class="proj-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">OpenAI</span><span class="tag">TypeScript</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-wrap reveal" style="transition-delay:.08s" data-tags="JavaScript,Leaflet,REST API">
+        <div class="proj-card">
+          <div class="proj-thumb thumb-teal"><i class="fas fa-cloud-sun"></i></div>
+          <div class="proj-overlay">
+            <div class="proj-overlay-title">ClimaFlow</div>
+            <div class="proj-overlay-desc">Interactive weather app with animated map overlays, 7-day forecast, and geolocation support.</div>
+            <div class="proj-overlay-links"><a href="#">Code <i class="fab fa-github"></i></a><a href="#">Demo <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">ClimaFlow</div>
+            <div class="proj-sub">Weather app · Leaflet.js · OpenWeather</div>
+            <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">Leaflet</span><span class="tag">REST API</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-wrap reveal" style="transition-delay:.16s" data-tags="Vue 3,Pinia,Firestore">
+        <div class="proj-card">
+          <div class="proj-thumb thumb-amber"><i class="fas fa-table-columns"></i></div>
+          <div class="proj-overlay">
+            <div class="proj-overlay-title">FlowBoard</div>
+            <div class="proj-overlay-desc">Collaborative kanban board with drag-and-drop, real-time Firestore sync, and team invite flows.</div>
+            <div class="proj-overlay-links"><a href="#">Code <i class="fab fa-github"></i></a><a href="#">Demo <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">FlowBoard</div>
+            <div class="proj-sub">Task management · Vue 3 · Firestore</div>
+            <div class="proj-tags"><span class="tag">Vue 3</span><span class="tag">Pinia</span><span class="tag">Firestore</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-wrap reveal" style="transition-delay:.24s" data-tags="Next.js,D3.js,WebSockets">
+        <div class="proj-card">
+          <div class="proj-thumb thumb-rose"><i class="fas fa-chart-line"></i></div>
+          <div class="proj-overlay">
+            <div class="proj-overlay-title">TradeView</div>
+            <div class="proj-overlay-desc">Real-time financial dashboard with candlestick charts, portfolio tracker, and alert system.</div>
+            <div class="proj-overlay-links"><a href="#">Code <i class="fab fa-github"></i></a><a href="#">Demo <i class="fas fa-arrow-up-right-from-square"></i></a></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">TradeView</div>
+            <div class="proj-sub">Finance dashboard · Next.js · WebSockets</div>
+            <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">D3.js</span><span class="tag">WebSockets</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow">Experience</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">Where I've shipped.</div></div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2023 — Present</div>
+        <div class="tl-role">Senior Front-End Developer</div>
+        <div class="tl-company">Freelance · Utrecht, NL</div>
+        <p class="tl-desc">Building products for early-stage startups and scale-ups across fintech and health-tech. Leading front-end architecture decisions and design system development.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2021 — 2023</div>
+        <div class="tl-role">Front-End Developer</div>
+        <div class="tl-company">Acme Digital Agency · Utrecht, NL</div>
+        <p class="tl-desc">Delivered 15+ client projects in Vue and React. Introduced component-driven development and improved deployment pipeline, cutting release cycle by 40%.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2019 — 2021</div>
+        <div class="tl-role">Junior Web Developer</div>
+        <div class="tl-company">StartupHub · Rotterdam, NL</div>
+        <p class="tl-desc">Built and maintained SaaS product front-ends. First professional exposure to accessibility standards and performance optimization at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="eyebrow">Testimonials</div>
+    <div class="section-title flip-wrap"><div class="flip-inner">What people say.</div></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Sam delivered ahead of schedule with exceptional attention to detail. Their React expertise made our product genuinely stand out."</p>
+        <div class="testi-author"><div class="testi-av">MK</div><div><div class="testi-name">Marcus Klein</div><div class="testi-role">CTO, Fintech startup</div></div></div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.08s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Working with Sam was a genuine pleasure. Complex requirements became a clean, accessible interface that users love."</p>
+        <div class="testi-author"><div class="testi-av">SR</div><div><div class="testi-name">Sarah Rodriguez</div><div class="testi-role">PM, HealthTech</div></div></div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.16s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The best front-end developer I've worked with. Sam's code is clean, well-documented, and performance-driven from day one."</p>
+        <div class="testi-author"><div class="testi-av">JW</div><div><div class="testi-name">James Wilson</div><div class="testi-role">Lead Dev, E-commerce</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow">Contact</div>
+    <div class="contact-wrap">
+      <div class="reveal">
+        <h2 class="contact-big">Got a project?<br/>Let's make it real.</h2>
+        <div class="avail-chip">Open to new work — June 2025</div>
+        <p class="contact-sub">I'm available for freelance work and collaborations. Whether it's a full build, a UI audit, or just a coffee in Utrecht — I'd love to hear your idea.</p>
+        <div class="social-row">
+          <a href="#" class="soc-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" class="soc-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="soc-link" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="soc-link" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+          <a href="mailto:sam@example.dev" class="soc-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.1s">
+        <form class="cform" id="contactForm" novalidate>
+          <div class="ff"><label for="cname">Name</label><input type="text" id="cname" placeholder="Your name" required/></div>
+          <div class="ff"><label for="cemail">Email</label><input type="email" id="cemail" placeholder="you@email.com" required/></div>
+          <div class="ff"><label for="cmsg">Message</label><textarea id="cmsg" rows="4" placeholder="Tell me about your project..."></textarea></div>
+          <div><button type="submit" class="btn btn-primary">Send message <i class="fas fa-paper-plane"></i></button></div>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marqueeInner"></div>
+</div>
+
+<footer>
+  <div class="container footer-inner">
+    <span class="footer-copy">© <span id="yr"></span> Sam — Utrecht, NL</span>
+    <div class="footer-links">
+      <a href="#home">Top</a>
+      <a href="mailto:sam@example.dev">Email</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="script.js" defer></script>
+</body>
+</html>
