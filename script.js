@@ -31,7 +31,7 @@
     if (window.rebuildGlobe) window.rebuildGlobe();
   }
   const sv = localStorage.getItem('theme');
-  applyTheme(sv ? sv === 'dark' : window.matchMedia('(prefers-color-scheme:dark)').matches);
+  applyTheme(sv ? sv === 'dark' : true);
   document.getElementById('themeBtn').addEventListener('click', () => applyTheme(!body.classList.contains('dark')));
 
   // ── MOBILE MENU ───────────────────────────────────────────────────
@@ -128,6 +128,14 @@
     wrap.addEventListener('mouseleave', () => { btn.style.transition = 'transform .5s cubic-bezier(.25,1,.5,1)'; btn.style.transform = ''; setTimeout(() => btn.style.transition = '', 500); });
   });
 
+  // ── PROJECTS HERO IMAGE (config)
+  const projectsHero = {
+    image: 'images/kiosk1.png',
+    alt: 'Projects banner'
+  };
+  const projectsHeroImg = document.getElementById('projectsHeroImg');
+  if (projectsHeroImg) projectsHeroImg.src = projectsHero.image;
+
   // ── TILT CARDS ───────────────────────────────────────────────────
   document.querySelectorAll('.tilt-wrap').forEach(wrap => {
     const card = wrap.querySelector('.proj-card'); if (!card) return;
@@ -141,7 +149,8 @@
     wrap.addEventListener('mouseleave', () => { card.style.transform = ''; card.style.boxShadow = ''; });
   });
 
-  // ── TEXT SCRAMBLE ─────────────────────────────────────────────────
+  // ── TEXT SCRAMBLE (disabled)
+
   const schars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   document.querySelectorAll('.flip-inner').forEach(el => {
     el.addEventListener('mouseenter', () => {

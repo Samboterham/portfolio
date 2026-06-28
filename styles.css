@@ -203,6 +203,12 @@ body.dark .now-card:hover{box-shadow:0 0 0 1px rgba(91,76,255,.25),0 8px 24px rg
 
 /* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.5rem;margin-top:2rem}
+
+/* Projects hero banner */
+.projects-hero{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-top:1.25rem;box-shadow:var(--card-shadow)}
+.projects-hero-img{width:100%;height:220px;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.02)}
+.projects-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.55) 100%);pointer-events:none}
+
 .tilt-wrap{perspective:1000px;border-radius:12px;transition:opacity .3s}
 .tilt-wrap.hidden{display:none}
 .proj-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative;transform-style:preserve-3d;transition:box-shadow .2s}
