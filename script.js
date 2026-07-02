@@ -263,6 +263,7 @@ const projectData = {
     title: 'Kiosk',
     desc: 'Kiosk bestelscherm waar je eten kan bestellen. Samenwerkopdracht op school met HTML, CSS, JavaScript, JSON en Node.',
     github: 'https://github.com/Samboterham/HamHalek',
+    cover: 'images/kiosk.png',
     images: [
       'images/kiosk1.png',
       'images/kiosk2.png',
@@ -275,6 +276,7 @@ const projectData = {
     title: 'Utrechts Archief Panorama',
     desc: 'Het Utrechts Archief kwam naar school met een opdracht: maak een panorama van de geschiedenis van het UA. In duo gebouwd met HTML, CSS, JavaScript en MySQL.',
     github: 'https://github.com/Samboterham/samalek',
+    cover: 'images/ua.png',
     images: [
       'images/ua1.png',
       'images/ua2.png',
@@ -287,6 +289,7 @@ const projectData = {
     title: 'U Festival App',
     desc: 'Een offline-werkende festival-app voor een zelf bedacht evenement. Gebouwd met HTML, CSS, JavaScript, JSON en Node.',
     github: 'https://github.com/Samboterham/u_festival_app',
+    cover: 'images/uf.png',
     images: [
       'images/uf1.png',
       'images/uf2.png',
@@ -299,6 +302,7 @@ const projectData = {
     title: 'Hoveniers Website',
     desc: 'Website voor een hoveniersbedrijf met een portfolio van HH tuinprojecten en foto’s van het werk.',
     github: '#',
+    cover: 'images/hh.png',
     images: [
       'images/hh1.png',
       'images/hh2.png',
@@ -308,6 +312,34 @@ const projectData = {
   },
 
 };
+
+function applyProjectCovers() {
+  document.querySelectorAll('.tilt-wrap[data-project]').forEach(wrap => {
+    const projectId = wrap.dataset.project;
+    const project = projectData[projectId];
+    const thumb = wrap.querySelector('.proj-thumb');
+    if (!project || !thumb) return;
+
+    const cover = project.cover || project.images?.[0];
+    if (!cover) return;
+
+    let coverImg = thumb.querySelector('.proj-thumb-img');
+    if (!coverImg) {
+      coverImg = document.createElement('img');
+      coverImg.className = 'proj-thumb-img';
+      thumb.prepend(coverImg);
+    }
+
+    coverImg.src = cover;
+    coverImg.alt = `${project.title} cover`;
+    thumb.classList.add('has-image');
+
+    const icon = thumb.querySelector('i');
+    if (icon) icon.style.display = 'none';
+  });
+}
+
+applyProjectCovers();
 
 // ── Modal logic (don't change below this line) ───────────────────
 (function initModal() {
