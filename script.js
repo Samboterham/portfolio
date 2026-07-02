@@ -110,9 +110,8 @@
     e.target.reset(); setTimeout(() => fb.textContent = '', 4000);
     toast('Message sent! Talk soon 🚀', 'ok', 'fa-paper-plane');
   });
-  document.getElementById('cvBtn').addEventListener('click', e => {
-    e.preventDefault();
-    toast('📄 sam_cv_2025.pdf — downloading…', 'ok', 'fa-download');
+  document.getElementById('cvBtn').addEventListener('click', () => {
+    toast('📄 samCV.pdf — downloading…', 'ok', 'fa-download');
   });
 
   // ── MARQUEE ───────────────────────────────────────────────────────
@@ -160,40 +159,6 @@
       run();
     });
   });
-
-  // ── EMOJI BURST ───────────────────────────────────────────────────
-  const emojis = ['✨', '🚀', '💜', '⚡', '🎨', '🔥', '💻', '🌟', '🎯', '🦋', '🎉', '💡'];
-  window.addEventListener('dblclick', e => {
-    for (let i = 0; i < 10; i++) {
-      const el = document.createElement('div');
-      const angle = (i / 10) * Math.PI * 2, dist = 55 + Math.random() * 45;
-      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      el.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:9995;font-size:1.4rem;animation:emojiFly 1.1s ease-out forwards;--ex:${Math.cos(angle) * dist}px;--ey:${Math.sin(angle) * dist - 40}px`;
-      document.body.appendChild(el); setTimeout(() => el.remove(), 1200);
-    }
-  });
-
-  // ── KONAMI CODE ───────────────────────────────────────────────────
-  const kseq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-  let ki = 0;
-  window.addEventListener('keydown', e => {
-    if (e.key === kseq[ki]) { ki++; if (ki === kseq.length) { triggerKonami(); ki = 0; } } else ki = 0;
-  });
-  function triggerKonami() {
-    const ov = document.createElement('div');
-    ov.className = 'konami-overlay';
-    ov.innerHTML = `<div class="konami-box"><span class="konami-emoji">🎮</span><div class="konami-title">Konami Code!</div><p class="konami-sub">You found the easter egg.<br/>You're a proper dev. 🚀</p><button class="btn btn-primary" onclick="this.closest('.konami-overlay').remove()" style="cursor:none">Nice one 👾</button></div>`;
-    document.body.appendChild(ov);
-    ov.addEventListener('click', e => { if (e.target === ov) ov.remove(); });
-    for (let i = 0; i < 20; i++) setTimeout(() => {
-      const el = document.createElement('div');
-      const angle = Math.random() * Math.PI * 2, dist = 60 + Math.random() * 80;
-      el.textContent = ['🎮', '🕹️', '⭐', '🚀', '💜', '✨', '🔥'][Math.floor(Math.random() * 7)];
-      el.style.cssText = `position:fixed;left:50%;top:50%;font-size:1.8rem;pointer-events:none;z-index:999999;animation:emojiFly 1.5s ease-out forwards;--ex:${Math.cos(angle) * dist}px;--ey:${Math.sin(angle) * dist - 50}px`;
-      document.body.appendChild(el); setTimeout(() => el.remove(), 1600);
-    }, i * 40);
-    toast('🎮 Konami Code unlocked! You legend.', 'ok', 'fa-star');
-  }
 
   // ── CURSOR + TRAIL ────────────────────────────────────────────────
   const dot = document.getElementById('cur-dot'), ring = document.getElementById('cur-ring'), spotlight = document.getElementById('spotlight');
@@ -291,24 +256,7 @@
   })();
 
 })();
-// ══════════════════════════════════════════════════════════════════
-// PROJECT PHOTO MODAL
-// ══════════════════════════════════════════════════════════════════
-//
-// HOW TO ADD PHOTOS TO YOUR PROJECTS:
-//
-//  1. Create a folder called  images/  next to index.html
-//  2. Put your screenshots in it, e.g.:
-//       images/kiosk-1.jpg
-//       images/kiosk-2.jpg
-//  3. Add the filenames to the images[] array below for that project
-//  4. Done — click the card and your photos appear!
-//
-// HOW TO ADD A NEW PROJECT:
-//  Copy one of the entries below and give it a unique key.
-//  Make sure the key matches  data-project="..."  on the card in index.html
-//
-// ══════════════════════════════════════════════════════════════════
+
 const projectData = {
 
   'kiosk': {
@@ -344,6 +292,18 @@ const projectData = {
       'images/uf2.png',
       'images/uf3.png',
       'images/uf4.png',
+    ]
+  },
+
+  'hoveniers': {
+    title: 'Hoveniers Website',
+    desc: 'Website voor een hoveniersbedrijf met een portfolio van HH tuinprojecten en foto’s van het werk.',
+    github: '#',
+    images: [
+      'images/hh1.png',
+      'images/hh2.png',
+      'images/hh3.png',
+      'images/hh4.png',
     ]
   },
 
