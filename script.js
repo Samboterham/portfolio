@@ -332,7 +332,8 @@ const projectData = {
     images: [
       'images/film1.png',
       'images/film2.png',
-      'images/film3.png'
+      'images/film3.png',
+       'images/film4.png'
     ]
   },
 
