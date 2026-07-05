@@ -1,6 +1,19 @@
 (function () {
   "use strict";
 
+  const assetBase = (() => {
+    const pathName = window.location.pathname.replace(/\/+$/, '');
+    if (pathName.includes('/portfolio')) return '/portfolio/';
+    return '/';
+  })();
+
+  window.assetUrl = function assetUrl(path) {
+    if (!path) return '';
+    if (/^(https?:)?\/\//i.test(path)) return path;
+    if (path.startsWith('/')) return path;
+    return `${assetBase}${path.replace(/^\.?\//, '')}`;
+  };
+
   // ── TOAST ─────────────────────────────────────────────────────────
   function toast(msg, type = 'ok', icon = 'fa-check-circle') {
     const wrap = document.getElementById('toastWrap');
@@ -129,7 +142,7 @@
 
   // ── PROJECTS HERO IMAGE (config)
   const projectsHero = {
-    image: 'images/kiosk1.png',
+    image: window.assetUrl('images/kiosk1.png'),
     alt: 'Projects banner'
   };
   const projectsHeroImg = document.getElementById('projectsHeroImg');
@@ -301,7 +314,7 @@ const projectData = {
   'hoveniers': {
     title: 'Hoveniers Website',
     desc: 'Website voor een hoveniersbedrijf met een portfolio van HH tuinprojecten en foto’s van het werk.',
-    github: '#',
+    github: 'https://github.com/Samboterham/Hovenierswebsite_echte',
     cover: 'images/hh.png',
     images: [
       'images/hh1.png',
@@ -332,7 +345,7 @@ function applyProjectCovers() {
     const thumb = wrap.querySelector('.proj-thumb');
     if (!project || !thumb) return;
 
-    const cover = project.cover || project.images?.[0];
+    const cover = window.assetUrl(project.cover || project.images?.[0]);
     if (!cover) return;
 
     let coverImg = thumb.querySelector('.proj-thumb-img');
@@ -417,7 +430,7 @@ applyProjectCovers();
     pmTitle.textContent = p.title;
     pmDesc.textContent = p.desc;
     pmGithub.href = p.github || '#';
-    images = p.images || [];
+    images = (p.images || []).map(window.assetUrl);
     cur = 0;
     buildDots();
     showPhoto(0);

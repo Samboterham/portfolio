@@ -1,24 +1,30 @@
 # Portfolio
 
-Een persoonlijke portfolio website gebouwd met HTML, CSS en JavaScript.
+Dit project is een persoonlijke portfoliowebsite gemaakt met HTML, CSS en JavaScript. De site laat mijn projecten, vaardigheden en contactgegevens zien in een moderne, interactieve vorm.
 
-## Inhoud
+## Wat zit erin?
 
-- Projecten showcase (Kiosk, UF)
-- CV download (PDF)
-- Responsive design
+- Een overzicht van mijn projecten met afbeeldingen
+- Een responsive portfolio-layout
+- Een contactformulier en CV-link
+- Een lokale server voor het tonen van de site via XAMPP of Node
 
-## Bestanden
+## Belangrijke mappen
 
-| Bestand | Beschrijving |
-|---|---|
-| `index.html` | Hoofdpagina |
-| `styles.css` | Styling |
-| `script.js` | JavaScript logica |
-| `images/` | Afbeeldingen van projecten |
-| `pdf/samCV.pdf` | CV |
+- images/: projectafbeeldingen en banners
+- pdf/: CV-bestanden
+- documenten/: extra documenten of referenties
 
 ## Lokaal draaien
 
-Open `index.html` via XAMPP in je browser:  
-`http://localhost/portfolio/`
+Met XAMPP:
+1. Plaats de map in de map htdocs.
+2. Open de site in je browser via http://localhost/portfolio/
+
+Met Node:
+1. Run npm start
+2. Open http://localhost:3000/
+
+## Opmerking
+
+De projectafbeeldingen worden geladen vanuit de map images/. Als je de site in een submap draait, worden de paden automatisch correct opgelost.
