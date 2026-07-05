@@ -412,6 +412,10 @@ footer{padding:2.5rem 0;border-top:1px solid var(--border)}
 .pm-next{right:.75rem}
 .pm-arrow.hide{opacity:0;pointer-events:none}
 
+/* When modal has light images (e.g. Film kiezer), make arrows dark for contrast */
+.proj-modal.light-arrows .pm-arrow{background:rgba(0,0,0,.14);color:#111}
+.proj-modal.light-arrows .pm-arrow:hover{background:rgba(0,0,0,.28)}
+
 .pm-counter{
   font-family:'JetBrains Mono',monospace;font-size:.7rem;
   color:var(--muted);text-align:center;padding:.6rem 0 0;

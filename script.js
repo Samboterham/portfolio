@@ -311,6 +311,18 @@ const projectData = {
     ]
   },
 
+   'filmkiezer': {
+    title: 'Filmkiezer',
+    desc: 'Webapp waarmee je favoriete films kunt toevoegen, bekijken en beheren. Gebouwd met Django en SQLite.',
+    github: 'https://github.com/Samboterham/djangoSite',
+    cover: 'images/film1.png',
+    images: [
+      'images/film1.png',
+      'images/film2.png',
+      'images/film3.png'
+    ]
+  },
+
 };
 
 function applyProjectCovers() {
@@ -410,6 +422,8 @@ applyProjectCovers();
     buildDots();
     showPhoto(0);
     modal.classList.add('open');
+    // make arrows dark on light images for specific projects
+    if (id === 'filmkiezer') modal.classList.add('light-arrows'); else modal.classList.remove('light-arrows');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     // reset scroll
@@ -418,6 +432,7 @@ applyProjectCovers();
 
   function closeModal() {
     modal.classList.remove('open');
+    modal.classList.remove('light-arrows');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     pmImg.src = '';
